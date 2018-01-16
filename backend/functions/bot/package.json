@@ -1,7 +1,7 @@
 {
-  "name": "ultra-services-weather",
-  "version": "0.1.1",
-  "description": "Ultra Inc. Weather API",
+  "name": "nabyl-ebay-bot",
+  "version": "0.1",
+  "description": "Ebay Bot",
   "main": "index.js",
   "license": "UNLICENSED",
   "repository": {
@@ -10,12 +10,12 @@
   },
   "author": "Nabyl Bennouri",
   "bugs": {
-    "url": "https://github.com"
+    "url": "https://github.com/314Tech"
   },
-  "homepage": "http://www.liveultrahealthy.com",
+  "homepage": "http://nabylbennouri.com",
   "scripts": {
     "setup": "./node_modules/.bin/node-lambda setup",
-    "test": "node ./tests/weather-tests.js | tap-spec",
+    "test": "node ./tests/listing.js | tap-spec",
     "package": "./node_modules/.bin/node-lambda package",
     "deploy": "./node_modules/.bin/node-lambda deploy"
   },

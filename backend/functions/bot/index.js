@@ -42,6 +42,7 @@ exports.handler = function (event, context, callback) {
        // translate
        if (_action === 'find.product') {
 
+         globalProductNumber = 0;
 				 // Call Ebay API
 				 try {
 					 const ebayAPIURL = 'http://svcs.sandbox.ebay.com/services/search/'
@@ -55,7 +56,7 @@ exports.handler = function (event, context, callback) {
 						 if (response.data.findItemsByKeywordsResponse[0].searchResult[0]['@count'] > 0) {
 							 globalProducts = response.data.findItemsByKeywordsResponse[0].searchResult[0].item;
 							 globalProductCount = response.data.findItemsByKeywordsResponse[0].searchResult[0]['@count'];
-							 var message = `I found ${globalProductCount} product${(globalProductCount >1) ? 's':''} listed on Ebay. Do you want to see the first one?`;
+							 var message = `I found ${globalProductCount} ${_product}${(globalProductCount >1 && _product[_product.length -1] !== 's') ? 's':''} listed on Ebay. Do you want to see the first one?`;
 							 console.log('Send ');
 							 callback(null, {
 							  speech: message,
@@ -108,6 +109,7 @@ exports.handler = function (event, context, callback) {
 					 console.log(`itemName: ${itemName}`);
 					 console.log(`itemPrice: ${itemPrice}`);
 					 console.log(`itemPictureURL: ${itemPictureURL}`);
+           console.log(`itemURL: ${itemURL}`);
 
            var postPhrase = '';
            if (globalProductNumber <= 1) {

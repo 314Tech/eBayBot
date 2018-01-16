@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import '../styles/app.css';
 import Message from './Message.js';
+import '../styles/app.css';
 
 class Chatroom extends React.Component {
 
@@ -71,12 +71,13 @@ class Chatroom extends React.Component {
     }
 
     // Callback when the bot responds
-    receiveMessage(message) {
+    receiveMessage(message, hlink) {
       this.setState({
         chats: this.state.chats.concat([{
           username: this.props.botChatName,
           content: <p>{message}</p>,
-          img: this.props.bitImgURL
+          img: this.props.bitImgURL,
+          url: (hlink) ? <a href={hlink} target="_blank"> <div className="button">Buy it now!</div></a> : ''
         }])
       });
       this.submitMessage = this.submitMessage.bind(this);
@@ -105,8 +106,10 @@ class Chatroom extends React.Component {
             axios.get(this.apiaiURL(message), config)
             .then(response => {
               this.hideTypingBubbles();
-              const speech = response.data.result.fulfillment.messages[0].speech;
-              this.receiveMessage((speech) ? speech : 'Shoot. Something is wrong with Ebay\'s servers. I can\'t reach it');
+              const fulfillment = response.data.result.fulfillment;
+              const speech = fulfillment.messages[0].speech;
+              const hlink = (fulfillment.data) ? fulfillment.data.url : '';
+              this.receiveMessage((speech) ? speech : 'Shoot. Something is wrong with Ebay\'s servers. I can\'t reach it', hlink);
             })
             .catch(error => {
               console.log(error);

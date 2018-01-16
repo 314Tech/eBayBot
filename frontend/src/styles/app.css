@@ -28,7 +28,7 @@ p {
 }
 
 .chatroom h3 {
-  font-family: 'Roboto', cursive;
+  font-family: 'Roboto';
   background-color: #FC5830;
   color: #FFF;
   margin: 0;
@@ -79,21 +79,36 @@ p {
   color:#3498DB;
 }
 
+.button  {
+  display: flex;
+  background: #FC5830;
+  justify-content: center;
+  color:#fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: #F5F5F5;
+  color: #000;
+}
+
 .chatroom .input {
   display: flex;
   background: #FC5830;
   flex-direction: row;
-  align-items: center;
+  justify-content: right;
 }
 
 .chatroom .input input[type="text"] {
   background: rgba(255, 255, 255, 0.5);
   font-size: 14px;
-  display: flex;
-  width: 400px
+  width: 100%;
 }
 
 .chatroom .input input[type="submit"] {
+  display: flex;
   background: transparent;
   font-size: 14px;
   cursor: pointer;
