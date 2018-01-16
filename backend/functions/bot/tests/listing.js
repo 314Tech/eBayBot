@@ -20,9 +20,9 @@ function testLocalLambda(func, event, cb) {
     });
 }
 
-test('Weather Current USA Portland', function (t) {
+test('Bot unit test1', function (t) {
 
-    testLocalLambda(lambdasPath + 'index.js', lambdasPath + 'tests/event-samples/usa-events.js',
+    testLocalLambda(lambdasPath + 'index.js', lambdasPath + 'tests/event-samples/test1.js',
         function (_err, _data) {
             err = _err;
             json = _data;
