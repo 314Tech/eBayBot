@@ -1,0 +1,8 @@
+{
+  "name": "nabyl-ebay",
+  "description": "Ebay's bot lambda functions",
+  "memory": 128,
+  "timeout": 5,
+  "role": "arn:aws:iam::859251457651:role/nabyl-ebay_lambda_function",
+  "environment": {}
+}

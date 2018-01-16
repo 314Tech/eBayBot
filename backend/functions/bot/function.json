@@ -1,0 +1,10 @@
+{
+  "description": "Ebay Bot",
+  "timeout": 60,
+  "memory": 128,
+  "handler": "index.handler",
+  "hooks": {
+    "build": "npm install",
+    "clean": "rm -rf node_modules"
+  }
+}
